@@ -4,7 +4,7 @@ interface IData {
   id: number;
   name: string;
 }
-const Baseurl: string = "http://127.0.0.1:800042";
+const Baseurl: string = "http://127.0.0.1:8000";
 
 const GetTodo = async () => {
   const data: IData[] = await axios.get(`${Baseurl}/`);
