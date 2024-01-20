@@ -60,3 +60,35 @@ const data = await axios.update("localhost:8000/api/{id}")
 After this if data is fetching properly 
 
 Then style todo app with your own mind set
+
+first install
+
+npm install concurrently --save-dev
+
+second add in package.json
+
+{
+  "scripts": {
+    "dev": "concurrently \"npm run next\" \"npm run fast-api\"",
+    "fast-api": "uvicorn --app-dir api main:app --reload",
+  }
+}
+
+third 
+add in next config
+const nextConfig = {
+    rewrites: async () => {
+        return [
+        {
+            source: '/api/:path*',
+            destination:
+            process.env.NODE_ENV === 'development'
+                ? 'http://127.0.0.1:8000/:path*'
+                : '/api/',
+        },
+        ]
+  },
+};
+
+fourth 
+npm run dev

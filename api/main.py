@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from fastapi import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-conn_str : str = "Write connection string here "
+conn_str : str = "postgresql://Ch-Saqib:4H0iLkyNBpqu@ep-weathered-credit-48841962.us-east-2.aws.neon.tech/piaic?sslmode=require"
 
 engine = create_engine(conn_str)
 
